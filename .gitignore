@@ -1,0 +1,19 @@
+# Python cache
+__pycache__/
+
+# Environment files
+.env
+
+# Conda environments
+.envs/
+conda-meta/
+
+# VS Code settings
+.vscode/
+
+# Python virtual environments
+venv/
+
+# OS files
+.DS_Store
+Thumbs.db
