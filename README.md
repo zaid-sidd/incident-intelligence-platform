@@ -16,6 +16,9 @@ Enterprise-oriented AI-powered incident intelligence platform designed to assist
 - Operational incident intelligence analysis
 - Severity-based operational risk evaluation
 - Incident summary generation service
+- Structured operational intelligence responses
+- Resilient fallback analysis workflows
+- JSON-based AI response architecture
 
 ---
 
@@ -110,6 +113,20 @@ AI intelligence workflows are currently under development.
 
 ---
 
+## Operational Intelligence Workflow
+
+The platform combines:
+- deterministic operational logic
+- AI-assisted reasoning
+- structured intelligence responses
+
+to support incident analysis workflows in enterprise environments.
+
+Current implementation includes resilient fallback analysis handling when external AI providers are unavailable.
+
+
+---
+
 ## Architecture Notes
 
 The platform follows a modular backend architecture:
@@ -119,3 +136,14 @@ The platform follows a modular backend architecture:
 - `main.py` → API routing layer
 
 This separation improves maintainability and scalability for future AI workflow integration.
+
+
+---
+
+## Current Development Focus
+
+Ongoing improvements include:
+- dynamic incident analysis
+- request validation
+- AI response structuring
+- operational workflow enhancements
