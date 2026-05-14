@@ -19,7 +19,9 @@ Enterprise-oriented AI-powered incident intelligence platform designed to assist
 - Structured operational intelligence responses
 - Resilient fallback analysis workflows
 - JSON-based AI response architecture
-
+- Dynamic incident submission APIs
+- Schema-based request validation
+- Typed operational incident models
 ---
 
 ## Tech Stack
@@ -140,6 +142,14 @@ This separation improves maintainability and scalability for future AI workflow 
 
 ---
 
+## Validation & Schema Design
+
+The platform uses Pydantic-based schema validation for enforcing structured API contracts and improving request reliability.
+
+Typed request models help standardize operational incident workflows and improve API maintainability.
+
+---
+
 ## Current Development Focus
 
 Ongoing improvements include:
@@ -147,3 +157,24 @@ Ongoing improvements include:
 - request validation
 - AI response structuring
 - operational workflow enhancements
+
+
+
+### Dynamic Incident Analysis
+
+```http
+POST /incidents/analyze
+```
+
+Accepts structured incident payloads and generates operational intelligence analysis dynamically.
+
+Example request payload:
+
+```json
+{
+  "service": "Payment Gateway",
+  "severity": "Critical",
+  "issue": "Payment requests failing during checkout",
+  "status": "Open"
+}
+```

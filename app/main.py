@@ -1,8 +1,8 @@
 from fastapi import FastAPI
-
 from app.datasets.sample_incidents import enterprise_incidents
 from app.services.incident_service import analyze_incidents
 from app.services.ai_engine import generate_incident_analysis
+from app.models.incident_models import IncidentRequest
 
 
 app = FastAPI(
@@ -75,5 +75,23 @@ def ai_incident_analysis():
 
     return {
         "incident_id": incident["incident_id"],
+        "operational_analysis": analysis
+    }
+
+
+@app.post(
+    "/incidents/analyze",
+    tags=["AI Intelligence"],
+    summary="Analyze a submitted enterprise incident",
+    description="Accepts incident payloads and generates operational intelligence analysis."
+)
+def analyze_dynamic_incident(incident: IncidentRequest):
+
+    incident_payload = incident.dict()
+
+    analysis = generate_incident_analysis(incident_payload)
+
+    return {
+        "submitted_incident": incident_payload,
         "operational_analysis": analysis
     }
