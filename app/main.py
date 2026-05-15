@@ -3,6 +3,7 @@ from app.datasets.sample_incidents import enterprise_incidents
 from app.services.incident_service import analyze_incidents
 from app.services.ai_engine import generate_incident_analysis
 from app.models.incident_models import IncidentRequest
+from app.services.retrieval_service import retrieve_similar_incidents
 
 
 app = FastAPI(
@@ -94,4 +95,20 @@ def analyze_dynamic_incident(incident: IncidentRequest):
     return {
         "submitted_incident": incident_payload,
         "operational_analysis": analysis
+    }
+
+@app.get(
+    "/incidents/history/{service_name}",
+    tags=["Knowledge Retrieval"],
+    summary="Retrieve historical operational incidents",
+    description="Fetches historical incidents and known resolutions for a given enterprise service."
+)
+def historical_incident_lookup(service_name: str):
+
+    matches = retrieve_similar_incidents(service_name)
+
+    return {
+        "service": service_name,
+        "historical_matches": matches,
+        "matches_found": len(matches)
     }

@@ -22,6 +22,9 @@ Enterprise-oriented AI-powered incident intelligence platform designed to assist
 - Dynamic incident submission APIs
 - Schema-based request validation
 - Typed operational incident models
+- Historical incident retrieval workflows
+- Operational knowledge lookup APIs
+- Context-aware incident intelligence
 ---
 
 ## Tech Stack
@@ -139,8 +142,16 @@ The platform follows a modular backend architecture:
 
 This separation improves maintainability and scalability for future AI workflow integration.
 
+---
+
+## Knowledge Retrieval Architecture
+
+The platform includes a lightweight retrieval layer for enriching incident analysis with historical operational context.
+
+Current implementation uses service-based retrieval matching and is designed to evolve toward semantic and vector-based retrieval workflows.
 
 ---
+
 
 ## Validation & Schema Design
 
@@ -177,4 +188,19 @@ Example request payload:
   "issue": "Payment requests failing during checkout",
   "status": "Open"
 }
+```
+
+
+### Historical Incident Retrieval
+
+```http
+GET /incidents/history/{service_name}
+```
+
+Retrieves historical operational incidents and known resolutions for enterprise services.
+
+Example:
+
+```http
+GET /incidents/history/Payment Gateway
 ```
